@@ -1,0 +1,6 @@
+As a developer we need to know about CRUD perfectly . 
+CRUD is short form of 4 work methods .
+1. Create/Insert 
+2. Read/View
+3. Update/Edit
+4. Delete/Remove

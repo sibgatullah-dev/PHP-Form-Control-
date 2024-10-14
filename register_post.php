@@ -1,18 +1,14 @@
 <?php 
 session_start();
 
-$host_name = 'localhost';
-$db_user = 'root';
-$db_password = '';
-$db_name = 'register_form';
-
-$db_connect = mysqli_connect($host_name, $db_user, $db_password, $db_name);
+require 'db.php';
 
 
 
 $name = $_POST['name'] ;
 $email= $_POST["e-mail"];
 $password = $_POST['password'];
+$after_hash = password_hash($password, PASSWORD_DEFAULT);
 $confirm_password = $_POST['confirm_password'];
 $gender = $_POST['gender'];
 $date_of_birth = $_POST['date_of_birth'];
@@ -117,6 +113,14 @@ else{
 
 
 if($flag){
+    header('location:index.php');
+}
+else{
+    $insert = "INSERT INTO users(name, email, password, gender, date_of_birth)VALUES('$name', '$email', '$after_hash', '$gender', '$date_of_birth')";
+
+    mysqli_query($db_connect, $insert);
+
+    $_SESSION['success'] = "Registration completed !!!";
     header('location:index.php');
 }
 
