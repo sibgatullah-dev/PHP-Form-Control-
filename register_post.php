@@ -1,6 +1,14 @@
 <?php 
 session_start();
 
+$host_name = 'localhost';
+$db_user = 'root';
+$db_password = '';
+$db_name = 'register_form';
+
+$db_connect = mysqli_connect($host_name, $db_user, $db_password, $db_name);
+
+
 
 $name = $_POST['name'] ;
 $email= $_POST["e-mail"];
