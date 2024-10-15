@@ -4,3 +4,6 @@ CRUD is short form of 4 work methods .
 2. Read/View
 3. Update/Edit
 4. Delete/Remove
+
+
+TRUNCATE _____(table name) = Removes every objects in a table of 			     a database

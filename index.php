@@ -14,7 +14,7 @@
    <div class="container">
     <div class="row">
             <div class="col-lg-6 m-auto">
-                <div class="card">
+                <div class="card" style="margin-top:150px ;">
                   
                     <div class="card-header bg-primary">
                         <h3 class="text-white">Register Form</h3>
@@ -143,4 +143,3 @@
   </body>
 </html>
 
-<i class="fa-regular fa-eye-slash"></i>
