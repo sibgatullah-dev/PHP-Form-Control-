@@ -37,7 +37,15 @@ else{
         $flag = true;
         $_SESSION['mail_err'] = 'Inalid E-mail Format!' ;
     }
+    $select = "SELECT COUNT(*)as total FROM users WHERE email='$email'";
+    $select_querry= mysqli_query($db_connect, $select);
+    $select_result = mysqli_fetch_assoc($select_querry);
+    if($select_result['total']==1){
+        $flag = true;
+        $_SESSION['mail_err']= 'Email already exists';
+    }
     $_SESSION["email_value"] = $email ;
+
 }
 
 if(empty($password)){
