@@ -13,14 +13,17 @@ if(empty($email)){
     $_SESSION['email_err'] = 'Enter Email';
 }
 else{
-    // if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    //     $flag= true;
-    //     $_SESSION['email_err'] = 'Invalid Email';
-    // }
-    $select = "SELECT COUNT(*)as totla FROM users WHERE email='$email'";
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $flag= true;
+        $_SESSION['email_err'] = 'Invalid Email';
+    }
+    $select = "SELECT COUNT(*)as total FROM users WHERE email='$email'";
     $select_querry= mysqli_query($db_connect, $select);
-    $select_result = mysqli_fetch_assoc($select_result);
-    echo $select_result['total'];
+    $select_result = mysqli_fetch_assoc($select_querry);
+    if($select_result['total']==0){
+        $flag = true;
+        $_SESSION['email_err']= 'E-mail does not exist';
+    }
 }
 
 if(empty($password)){
